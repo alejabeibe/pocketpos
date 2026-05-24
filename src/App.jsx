@@ -175,6 +175,97 @@ function Dashboard({ sales, todaySales }) {
 function Products({ products, addProduct, deleteProduct }) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const [editingId, setEditingId] = useState(null);
+
+  function save() {
+    if (!name || !price) return alert("Nombre y precio son requeridos.");
+
+    const productData = {
+      id: editingId || crypto.randomUUID(),
+      name,
+      price: Number(price),
+    };
+
+    if (editingId) {
+      const updated = products.map((p) =>
+        p.id === editingId ? productData : p
+      );
+
+      localStorage.setItem("products", JSON.stringify(updated));
+      window.location.reload();
+    } else {
+      addProduct(productData);
+    }
+
+    setName("");
+    setPrice("");
+    setEditingId(null);
+  }
+
+  function startEdit(product) {
+    setName(product.name);
+    setPrice(product.price);
+    setEditingId(product.id);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  return (
+    <main>
+      <div className="card">
+        <h2>{editingId ? "Editar Producto" : "Nuevo Producto"}</h2>
+
+        <input
+          placeholder="Nombre"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <input
+          placeholder="Precio"
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
+
+        <button className="primary" onClick={save}>
+          <Plus size={18} />
+          {editingId ? "Guardar Cambios" : "Guardar Producto"}
+        </button>
+
+        {editingId && (
+          <button
+            className="danger"
+            onClick={() => {
+              setName("");
+              setPrice("");
+              setEditingId(null);
+            }}
+          >
+            Cancelar Edición
+          </button>
+        )}
+      </div>
+
+      <div className="grid">
+        {products.map((p) => (
+          <div className="card product" key={p.id}>
+            <h3>{p.name}</h3>
+            <p>{money(p.price)}</p>
+
+            <button className="primary" onClick={() => startEdit(p)}>
+              Editar
+            </button>
+
+            <button className="danger" onClick={() => deleteProduct(p.id)}>
+              <Trash2 size={16} />
+              Borrar
+            </button>
+          </div>
+        ))}
+      </div>
+    </main>
+  );
+}
 
   function save() {
     if (!name || !price) return alert("Nombre y precio son requeridos.");
