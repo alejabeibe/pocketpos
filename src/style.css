@@ -1,0 +1,179 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f3f4f6;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111827;
+}
+
+.app {
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding-bottom: 90px;
+}
+
+header {
+  background: #111827;
+  color: white;
+  padding: 22px 18px;
+  border-radius: 0 0 24px 24px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+header p {
+  margin: 4px 0 0;
+  opacity: 0.75;
+}
+
+main {
+  padding: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 22px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.hero {
+  background: #111827;
+  color: white;
+}
+
+.hero h2 {
+  font-size: 42px;
+  margin: 8px 0 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.product h3,
+.product p {
+  margin: 4px 0;
+}
+
+.productButton {
+  border: none;
+  text-align: left;
+  min-height: 105px;
+  font-size: 16px;
+}
+
+.productButton strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.productButton span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 8px 0;
+  border-radius: 14px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.primary {
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 15px;
+  margin-top: 10px;
+  background: #111827;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.danger {
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 10px;
+  background: #fee2e2;
+  color: #991b1b;
+  font-weight: bold;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.row button {
+  border: none;
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 8px;
+  padding: 6px 9px;
+}
+
+.total {
+  font-size: 22px;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 700px;
+  width: 100%;
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid #e5e7eb;
+  padding: 8px 4px;
+}
+
+nav button {
+  border: none;
+  background: white;
+  font-size: 11px;
+  color: #111827;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 420px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  .hero h2 {
+    font-size: 36px;
+  }
+}
