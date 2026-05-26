@@ -1,15 +1,20 @@
 {
+  "name": "devi-mode-pos",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite",
-    "preview": "vite --host 0.0.0.0"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@vitejs/plugin-react": "latest",
-    "vite": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "lucide-react": "latest"
+    "lucide-react": "^0.564.0",
+    "react": "^19",
+    "react-dom": "^19"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.2",
+    "vite": "^8.0.14"
+  }
 }
