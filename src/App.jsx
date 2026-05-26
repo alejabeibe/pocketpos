@@ -1045,4 +1045,3 @@ function ReceiptModal({ receipt, businessName, onClose }) {
     </div>
   )
 }
-
